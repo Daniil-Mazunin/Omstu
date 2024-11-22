@@ -1,0 +1,125 @@
+//На вход строка из слов, между которыми от одного до нескольких пробелов. Для заданной строки выполнить задачу: 1) удалить все лишние пробелы, оставив по одному.
+using System;
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Введите строку:");
+        string words = Console.ReadLine();
+        string rez = "";
+        bool probel = false;
+        for (int i = 0; i < words.Length; i++) 
+        { 
+            char elem = words[i];
+            if (elem != ' ')
+            {
+                rez += elem;
+                probel = false;
+            }
+            else if (!probel)
+                {
+                rez += ' ';
+                probel = true;
+            }
+        }
+        Console.WriteLine("Результат:");
+        Console.WriteLine(rez);
+    }
+}
+// 2) выдать все палиндромы. 
+using System;
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Введите строку:");
+        string words = Console.ReadLine();
+        string rez = "";
+        bool probel = false;    
+        for (int i = 0; i < words.Length; i++)
+        {
+            char elem = words[i];
+            if (elem != ' ')
+            {
+                rez += elem;
+                probel = false;
+            }
+            else if (!probel)
+            {
+                rez += ' ';
+                probel = true;
+            }
+        }
+        string word = "";
+        for (int i = 0; i < rez.Length; i++)
+        {
+            char elem = rez[i];
+            if (elem == ' ')
+            {
+                bool palindrom = true;
+                for (int j = 0; j < word.Length / 2; j++)
+                {
+                    if (word[j] != word[word.Length - 1 - j])
+                    {
+                        palindrom = false;
+                        break;
+                    }
+                }
+                if (palindrom && word.Length > 0)
+                {
+                    Console.WriteLine(word);
+                }
+                word = "";
+            }
+            else
+            {
+                word += elem;
+            }
+        }
+        if (word.Length > 0)
+        {
+            bool palindrom = true;
+            for (int j = 0; j < word.Length / 2; j++)
+            {
+                if (word[j] != word[word.Length - 1 - j])
+                {
+                    palindrom = false;
+                    break;
+                }
+            }
+            if (palindrom)
+            {
+                Console.WriteLine(word);
+            }
+        }
+    }
+}
+// 3) посчитать колво слов у которых первый и последний символ совпадают.
+using System;
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Введите строку:");
+        string words = Console.ReadLine();
+        int count = 0;
+        int i = 0;
+        while (i < words.Length)
+        {
+            while (i < words.Length && words[i] == ' ')
+            {
+                i++;
+            }
+            int index = i;
+            while (i < words.Length && words[i] != ' ')
+            {
+                i++;
+            }
+            if (words[index] == words[i - 1])
+            {
+                count++;
+            }
+        }
+        Console.WriteLine("Количество слов у которых первый и последний символы совпадают: " + count);
+    }
+}
