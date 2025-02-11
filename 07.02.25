@@ -1,0 +1,160 @@
+//класс с абонентами
+using System;
+using System.Linq.Expressions;
+using System.Timers;
+class Abonent
+{
+    public string Name { get; set; }
+    public string[] Telephon { get; set; }
+    public string City { get; set; }
+    public string Oper { get; set; }
+    public int Year { get; set; }
+    public Abonent(string name, string[] tel, string city, string oper, int year)
+    {
+        Name = name;
+        Telephon = tel;
+        City = city;
+        Oper = oper;
+        Year = year;
+    }
+    public override string ToString()
+    { 
+        return "\nИмя абонента: " + Name + " Номера телефонов: " + string.Join(",",Telephon) + " Город: " + City + " Оператор: " + Oper + " Год: " + Year;
+    }
+}
+class Program
+{
+    static void Zapoln(Abonent[] abonents)
+    {
+        for (int i = 0; i < abonents.Length; i++)
+        {
+            Console.WriteLine($"\nВведите ФИО {i + 1}-го абонента");
+            string name = Console.ReadLine();
+
+            Console.WriteLine("Введите количество номеров телефона");
+            int countTel = int.Parse(Console.ReadLine());
+            
+            Console.WriteLine("Введите номера телефонов");
+            string[] tel = new string[countTel];
+            for (int  j = 0; j < countTel; j++)
+            {
+                tel[j] = Console.ReadLine();
+            }
+            
+            Console.WriteLine("Введите город");
+            string city = Console.ReadLine();
+            
+            Console.WriteLine("Введите название оператора");
+            string oper = Console.ReadLine();
+            
+            Console.WriteLine("Введите год");
+            int year = int.Parse(Console.ReadLine());
+
+            abonents[i] = new Abonent(name, tel, city, oper, year);
+        }
+    }
+    static void NameVibor(Abonent[] abonents)
+    {
+        Console.WriteLine("\nВведите имя абонента");
+        string nameSearch = Console.ReadLine();
+        int kolvo = 0;
+
+        for (int i = 0;i < abonents.Length;i++)
+        {
+            if (nameSearch == abonents[i].Name)
+            {
+                Console.WriteLine(abonents[i]);
+                kolvo++;
+            }
+        }
+        if (kolvo == 0)
+        {
+            Console.WriteLine("Абоненты не найдены");
+        }
+    }
+    static void OperVibor(Abonent[] abonents)
+    {
+        Console.WriteLine("\nВведите название оператора");
+        string operSearch = Console.ReadLine();
+        int kolvo = 0;
+
+        for (int i = 0; i < abonents.Length;i++)
+        {
+            if (operSearch == abonents[i].Oper)
+            {
+                Console.WriteLine(abonents[i]);
+                kolvo++;
+            }
+        }
+        if (kolvo == 0)
+        {
+            Console.WriteLine("Абоненты не найдены");
+        }
+    }
+    static void TelVibor(Abonent[] abonents)
+    {
+        Console.WriteLine("\nВведите номер телефона");
+        string number = Console.ReadLine();
+        int kolvo = 0;
+
+        for (int i = 0; i < abonents.Length ; i++)
+        {
+            for (int j = 0; j < (abonents[i].Telephon).Length; j++)
+            {
+                if (number == abonents[i].Telephon[j])
+                {
+                    Console.WriteLine(abonents[i]);
+                    kolvo++;
+                }
+            }
+        }
+        if (kolvo == 0)
+        {
+            Console.WriteLine("Абоненты не найдены");
+        }
+    }
+    static void Main()
+    {
+        Console.WriteLine("Введите количество абонентов");
+        int count = int.Parse(Console.ReadLine());
+        Abonent[] abonents = new Abonent[count];
+        bool a = true;
+        while (a)
+        {
+            Console.WriteLine("\n" + "\tМеню");
+            Console.WriteLine("1. Заполнение");
+            Console.WriteLine("2. Выборка по ФИО");
+            Console.WriteLine("3. Выборка по оператору");
+            Console.WriteLine("4. Выборка по номеру телефона");
+            Console.WriteLine("5. Выход");
+
+            int vibor = int.Parse(Console.ReadLine());
+
+            if (vibor == 1)
+            {
+                Zapoln(abonents);
+            }
+            else if (vibor == 2)
+            {
+                NameVibor(abonents);
+            }
+            else if (vibor == 3)
+            {
+                OperVibor(abonents);
+            }
+            else if (vibor == 4)
+            {
+                TelVibor(abonents);
+            }
+            else if (vibor == 5)
+            {
+                break;
+                a = false;
+            }
+            else
+            {
+                Console.WriteLine("Данной операции не существует");
+            }
+        }
+    }
+}
