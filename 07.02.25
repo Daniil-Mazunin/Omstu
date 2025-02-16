@@ -3,39 +3,35 @@ using System;
 class Abonent
 {
     public string Name { get; set; }
-    public Operator[] Telephon { get; set; }
+    public Telephon[] Tel { get; set; }
     public string City { get; set; }
-    public int Year { get; set; }
-    public Abonent(string name, Operator[] tel, string city, int year)
+    public Abonent(string name, Telephon[] tel, string city)
     {
         Name = name;
-        Telephon = tel;
+        Tel = tel;
         City = city;
-        Year = year;
     }
     public override string ToString()
     {
-        var numb = string.Join(", ", Telephon.Select(t => t.Telephon));
-        return "\nИмя абонента: " + Name + " Номера телефонов: " + numb + " Город: " + City + " Год: " + Year;
+        var numb = string.Join(", ", Tel.Select(t => t.Number));
+        return "\nИмя абонента: " + Name + " Номера телефонов: " + numb + " Город: " + City;
     }
 }
-class Operator
+class Telephon
 {
-    public string Telephon { get; set; }
+    public string Number { get; set; }
 
     public string Oper { get; set; }
+    public int Year { get; set; }
 
-    public Operator(string telephon, string oper)
+    public Telephon(string numb, string oper, int year)
     {
-        Telephon = telephon;
+        Number = numb;
         Oper = oper;
-    }
-    public override string ToString()
-    {
-        return Telephon + Oper;
+        Year = year;
     }
 }
-class Program
+    class Program
 {
     static void Zapoln(Abonent[] abonents)
     {
@@ -47,23 +43,22 @@ class Program
             Console.WriteLine("Введите количество номеров телефона");
             int countTel = int.Parse(Console.ReadLine());
 
-            Operator[] operators = new Operator[countTel];
+            Telephon[] operators = new Telephon[countTel];
             for (int j = 0; j < countTel; j++)
             {
                 Console.WriteLine("Введите номер телефона");
                 string num = Console.ReadLine();
+                Console.WriteLine("Введите год регистрации данного номера");
+                int year = int.Parse(Console.ReadLine());
                 Console.WriteLine("Введите оператора для данного номера телефона");
                 string oper = Console.ReadLine();
-                operators[j] = new Operator(num, oper);
+                operators[j] = new Telephon(num, oper, year);
             }
              
             Console.WriteLine("Введите город");
             string city = Console.ReadLine();
-            
-            Console.WriteLine("Введите год");
-            int year = int.Parse(Console.ReadLine());
 
-            abonents[i] = new Abonent(name, operators, city, year);
+            abonents[i] = new Abonent(name, operators, city);
         }
     }
     static void NameVibor(Abonent[] abonents)
@@ -93,7 +88,7 @@ class Program
 
         foreach (var abonent in abonents)
         {
-            foreach (var tel  in abonent.Telephon)
+            foreach (var tel  in abonent.Tel)
             {
                 if (operSearch == tel.Oper)
                 {
@@ -116,9 +111,9 @@ class Program
 
         foreach (var abonent in abonents)
         {
-            foreach (var tel in abonent.Telephon)
+            foreach (var tel in abonent.Tel)
             {
-                if (number == tel.Telephon)
+                if (number == tel.Number)
                 {
                     Console.WriteLine(abonent);
                     kolvo++;
@@ -176,3 +171,4 @@ class Program
         }
     }
 }
+
