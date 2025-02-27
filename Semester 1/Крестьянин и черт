@@ -1,0 +1,29 @@
+using System;
+class HelloWorld{
+    static void Main(){
+        Console.WriteLine("Входные данные: ");
+        int maxN = int.Parse(Console.ReadLine());
+        int count = 0;
+        for (int  z = 1; z < int.MaxValue; z++)
+        {
+            double dvavZ = Math.Pow(2, z);
+            double dvavZ2 = dvavZ - 1;
+            double n = dvavZ2;
+            while (n <= maxN)
+            {
+                double k = dvavZ * n / dvavZ2;
+                if (k > 0)
+                {
+                    count++;
+                }
+                n += dvavZ2;
+            }
+            if (dvavZ2 > maxN * 2)
+            {
+                break;
+            }
+        }
+        Console.WriteLine("Выходные данные: ");
+        Console.WriteLine(count);
+    }
+}

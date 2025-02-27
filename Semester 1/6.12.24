@@ -1,0 +1,207 @@
+// 1. С помощью классов написать вычисления
+using System;
+class Operation
+{
+    double x, y;
+    public Operation(double a, double b)
+    {
+        x = a;
+        y = b;
+        if (x == 0 && y == 0)
+        {
+            Console.WriteLine("Переменные равны 0");
+        }
+    }
+    public double Slozh()
+    {
+        return x + y;
+    }
+    public double Vichet(double x, double y)
+    {
+        return x - y;
+    }
+    public double Umnozh()
+    {
+        return x * y;
+    }
+    public double Delenie()
+    {
+        if (y  == 0)
+        {
+            Console.WriteLine("Делить на 0 нельзя ");
+            return 0;
+        }
+        else
+        {
+            return x / y;
+        }
+    }
+}
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Введите первое число ");
+        double a = double.Parse(Console.ReadLine());
+        Console.WriteLine("Введите второе число ");
+        double b = double.Parse(Console.ReadLine());
+
+        Operation operation = new Operation(a, b);
+
+        Console.WriteLine($"Умножение: {operation.Umnozh()}");
+
+        Console.WriteLine($"Сложение: {operation.Slozh()}");
+
+        Console.WriteLine($"Вычетение (a - b): {operation.Vichet(a, b)} Вычетание (b - a): {operation.Vichet(b, a)}");
+
+        Console.WriteLine($"Деление: {operation.Delenie()}");
+
+    }
+}
+// 2. Задача со студентом.
+using System;
+class Student
+{
+    public string Name { get; set; }
+    public int Year { get; set; }
+    public int Course { get; set; }
+    public Student(string name, int year, int course)
+    {
+        Name = name;
+        Year = year;
+        Course = course;
+    }
+    public override string ToString()
+    {
+        return "\nИмя: " + Name + " Год рождения: " + Year + " Курс: " + Course;
+    } 
+}
+class Program
+{
+    static void FullStud(Student[] students)
+    {
+        for (int i = 0; i < students.Length; i++)
+        {
+            Console.WriteLine($"\nВведите имя студента {i + 1}");
+            string name = Console.ReadLine();
+
+            Console.WriteLine($"Введите год рождения");
+            int year = int.Parse(Console.ReadLine());
+
+            Console.WriteLine($"Введите курс");
+            int course = int.Parse(Console.ReadLine());
+
+            students[i] = new Student(name, year, course);
+        }
+    }
+    static void Mod(Student[] students)
+    {
+        Console.WriteLine("\nВведите имя студента");
+        string modName = Console.ReadLine();
+        int kolvo = 0;
+
+        for (int i = 0;i < students.Length;i++)
+        {
+            if (modName == students[i].Name)
+            {
+                Console.WriteLine("\nВведите новый год рождения");
+                students[i].Year = int.Parse(Console.ReadLine());
+
+                Console.WriteLine("Введите новый курс");
+                students[i].Course = int.Parse(Console.ReadLine());
+
+                Console.WriteLine("Данные обновлены");
+                kolvo++;
+            }
+        }
+        if (kolvo == 0)
+        {
+            Console.WriteLine("Студент не найден");
+        }
+    }
+    
+    static void ViborYear(Student[] students)
+    {
+        Console.WriteLine("\nВведите год рождения");
+        int vibYear = int.Parse(Console.ReadLine());
+        int kolvo = 0;
+
+        for (int i = 0; i < students.Length;i++)
+        {
+            if (vibYear == students[i].Year)
+            {
+                Console.WriteLine("\n" + students[i]);
+                kolvo++;
+            }
+        }
+        if (kolvo == 0)
+        {
+            Console.WriteLine("Студенты не найдены");
+        }
+    }
+    
+    static void ViborCourse(Student[] students)
+    {
+        Console.WriteLine("\nВвeдите курс");
+        int vibCourse = int.Parse(Console.ReadLine());
+        int kolvo = 0;
+
+        for (int i = 0;i < students.Length;i++)
+        {
+            if (vibCourse == students[i].Course)
+            {
+                Console.WriteLine("\n" + students[i]);
+                kolvo++;
+            }
+        }
+        if (kolvo == 0)
+        {
+            Console.WriteLine("Студенты не найдены");
+        }
+    }
+    
+    static void Main()
+    {
+        Console.WriteLine("Введите количество студентов");
+        int count = int.Parse(Console.ReadLine());
+        Student[] students = new Student[count];
+        bool a = true;
+        while (a)
+        {
+            Console.WriteLine("\n" + "\tМеню");
+            Console.WriteLine("1. Заполнение");
+            Console.WriteLine("2. Модификация");
+            Console.WriteLine("3. Поиск по году рождения");
+            Console.WriteLine("4. Поиск по курсу");
+            Console.WriteLine("5. Выход");
+
+            int vibor = int.Parse(Console.ReadLine());
+
+            if (vibor == 1)
+            {
+                FullStud(students);
+            }
+            else if (vibor == 2)
+            {
+                Mod(students);
+            }
+            else if (vibor == 3) 
+            {
+                ViborYear(students);
+            }
+            else if (vibor == 4)
+            {
+                ViborCourse(students);
+            }
+            else if(vibor == 5)
+            {
+                a = false;
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Такой операции не существует");
+            }
+        }
+    }
+}

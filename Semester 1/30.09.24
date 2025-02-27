@@ -1,0 +1,62 @@
+/*1.Определить максимальный размер последовательности из одинаковых элементов/*
+using System;
+class HelloWorld {
+  static void Main() {
+    int num, max=0, c=0, y=1, pos;
+    num=Convert.ToInt32(Console.ReadLine());
+    for (int i=0;i<num;i++){
+        pos=Convert.ToInt32(Console.ReadLine());
+        if (i!=0 && c==pos){
+            y ++;
+        }
+            if (y>max){
+                max=y;
+                }
+        c=pos;
+    }
+    Console.WriteLine(max);
+  }
+}
+
+/*2.Определить минимальную длину последовательности из нулей/*
+using System;
+class HelloWorld {
+  static void Main() {
+    int num, max=0, c=0, y=0, pos;
+    num=Convert.ToInt32(Console.ReadLine());
+    for (int i=0;i<num;i++){
+        pos=Convert.ToInt32(Console.ReadLine());
+        if (pos==0){
+            y ++;
+        }
+            if (y>max){
+                max=y;
+                }
+        c=pos;
+    }
+    Console.WriteLine(max);
+  }
+}
+/*3.Определить макстмальную сумму последовательностей четных чисел/*
+using System;
+class HelloWorld {
+    static void Main() {
+        int num, max = 0, sum = 0, pos;
+        num=Convert.ToInt32(Console.ReadLine());
+        for (int i = 0; i < num; i++) {
+            pos = Convert.ToInt32(Console.ReadLine());
+            if (pos % 2 == 0) { 
+                sum += pos;
+            } else {
+                if (sum > max) {
+                    max = sum; 
+                }
+                sum = 0;
+            }
+        }
+        if (sum > max) {
+            max = sum;
+        }
+        Console.WriteLine(max);
+    }
+}
