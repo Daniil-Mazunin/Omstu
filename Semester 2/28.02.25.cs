@@ -1,4 +1,4 @@
-//1. на вход подаётся число, пробел, число, пробел, знак, 1 2 +, найти результат 1+2 или невозможность
+//1. РЅР° РІС…РѕРґ РїРѕРґР°С‘С‚СЃСЏ С‡РёСЃР»Рѕ, РїСЂРѕР±РµР», С‡РёСЃР»Рѕ, РїСЂРѕР±РµР», Р·РЅР°Рє, 1 2 +, РЅР°Р№С‚Рё СЂРµР·СѓР»СЊС‚Р°С‚ 1+2 РёР»Рё РЅРµРІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ
 using System;
 class Program
 {
@@ -36,7 +36,7 @@ class Program
             int firstNum = stack.Pop();
             if (secondNum == 0)
             {
-                Console.WriteLine("Операция невозможна, т.к. в знаменателе ноль");
+                Console.WriteLine("ГЋГЇГҐГ°Г Г¶ГЁГї Г­ГҐГўГ®Г§Г¬Г®Г¦Г­Г , ГІ.ГЄ. Гў Г§Г­Г Г¬ГҐГ­Г ГІГҐГ«ГҐ Г­Г®Г«Гј");
             }
             else
             {
@@ -46,12 +46,12 @@ class Program
         }
         else
         {
-            Console.WriteLine("Операции не существует");
+            Console.WriteLine("ГЋГЇГҐГ°Г Г¶ГЁГЁ Г­ГҐ Г±ГіГ№ГҐГ±ГІГўГіГҐГІ");
         }
     }
 }
 
-//2. на вход подаётся список, выдать сет списка и частоту появления каждого символа
+//2. РЅР° РІС…РѕРґ РїРѕРґР°С‘С‚СЃСЏ СЃРїРёСЃРѕРє, РІС‹РґР°С‚СЊ СЃРµС‚ СЃРїРёСЃРєР° Рё С‡Р°СЃС‚РѕС‚Сѓ РїРѕСЏРІР»РµРЅРёСЏ РєР°Р¶РґРѕРіРѕ СЃРёРјРІРѕР»Р°
 using System;
 class Program
 {
@@ -59,7 +59,7 @@ class Program
     {
         List<char> list = new List<char> { 'a', 'b', 'c', 'a', 'c' };
         HashSet<char> set = new HashSet<char>(list);
-        Console.WriteLine("Сет списка");
+        Console.WriteLine("Г‘ГҐГІ Г±ГЇГЁГ±ГЄГ ");
         foreach (char current in set)
         {
             Console.WriteLine(current);
@@ -77,7 +77,7 @@ class Program
                 symbols.Add(current, 1);
             }
         }
-        Console.WriteLine("\nЧастота появление каждого символа");
+        Console.WriteLine("\nГ—Г Г±ГІГ®ГІГ  ГЇГ®ГїГўГ«ГҐГ­ГЁГҐ ГЄГ Г¦Г¤Г®ГЈГ® Г±ГЁГ¬ГўГ®Г«Г ");
         foreach (var symbol in symbols)
         {
             Console.WriteLine($"{symbol.Key}: {symbol.Value}");
