@@ -13,43 +13,51 @@ class Program
         stack.Push(num1);
         stack.Push(num2);
         string operation = parts[2];
-        if (operation == "+")
+        if (parts.Length == 3)
         {
-            res = stack.Pop() + stack.Pop();
-            Console.WriteLine(res);
-        }
-        else if (operation == "-")
-        {
-            int secondNum = stack.Pop();
-            int firstNum = stack.Pop();
-            res = firstNum - secondNum;
-            Console.WriteLine(res);
-        }
-        else if (operation == "*")
-        {
-            res = stack.Pop() * stack.Pop();
-            Console.WriteLine(res);
-        }
-        else if (operation == "/")
-        {
-            int secondNum = stack.Pop();
-            int firstNum = stack.Pop();
-            if (secondNum == 0)
+            if (operation == "+")
             {
-                Console.WriteLine("Îïåðàöèÿ íåâîçìîæíà, ò.ê. â çíàìåíàòåëå íîëü");
+                res = stack.Pop() + stack.Pop();
+                Console.WriteLine(res);
+            }
+            else if (operation == "-")
+            {
+                int secondNum = stack.Pop();
+                int firstNum = stack.Pop();
+                res = firstNum - secondNum;
+                Console.WriteLine(res);
+            }
+            else if (operation == "*")
+            {
+                res = stack.Pop() * stack.Pop();
+                Console.WriteLine(res);
+            }
+            else if (operation == "/")
+            {
+                int secondNum = stack.Pop();
+                int firstNum = stack.Pop();
+                if (secondNum == 0)
+                {
+                    Console.WriteLine("Делить на ноль нельзя");
+                }
+                else
+                {
+                    res = firstNum / secondNum;
+                    Console.WriteLine(res);
+                }
             }
             else
             {
-                res = firstNum / secondNum;
-                Console.WriteLine(res);
+                Console.WriteLine("Неверно введена операция");
             }
         }
         else
         {
-            Console.WriteLine("Îïåðàöèè íå ñóùåñòâóåò");
+            Console.WriteLine("Неверное количество элементов");
         }
     }
 }
+
 
 //2. на вход подаётся список, выдать сет списка и частоту появления каждого символа
 using System;
@@ -59,7 +67,7 @@ class Program
     {
         List<char> list = new List<char> { 'a', 'b', 'c', 'a', 'c' };
         HashSet<char> set = new HashSet<char>(list);
-        Console.WriteLine("Ñåò ñïèñêà");
+        Console.WriteLine("Сет списка");
         foreach (char current in set)
         {
             Console.WriteLine(current);
@@ -77,7 +85,7 @@ class Program
                 symbols.Add(current, 1);
             }
         }
-        Console.WriteLine("\n×àñòîòà ïîÿâëåíèå êàæäîãî ñèìâîëà");
+        Console.WriteLine("\nЧастота появления каждого символа");
         foreach (var symbol in symbols)
         {
             Console.WriteLine($"{symbol.Key}: {symbol.Value}");
