@@ -1,4 +1,4 @@
-//1. на вход подаётся число, пробел, число, пробел, знак, 1 2 +, найти результат 1+2 или невозможность
+//1. РЅР° РІС…РѕРґ РїРѕРґР°С‘С‚СЃСЏ С‡РёСЃР»Рѕ, РїСЂРѕР±РµР», С‡РёСЃР»Рѕ, РїСЂРѕР±РµР», Р·РЅР°Рє, 1 2 +, РЅР°Р№С‚Рё СЂРµР·СѓР»СЊС‚Р°С‚ 1+2 РёР»Рё РЅРµРІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ
 using System;
 class Program
 {
@@ -13,45 +13,53 @@ class Program
         stack.Push(num1);
         stack.Push(num2);
         string operation = parts[2];
-        if (operation == "+")
+        if (parts.Length == 3)
         {
-            res = stack.Pop() + stack.Pop();
-            Console.WriteLine(res);
-        }
-        else if (operation == "-")
-        {
-            int secondNum = stack.Pop();
-            int firstNum = stack.Pop();
-            res = firstNum - secondNum;
-            Console.WriteLine(res);
-        }
-        else if (operation == "*")
-        {
-            res = stack.Pop() * stack.Pop();
-            Console.WriteLine(res);
-        }
-        else if (operation == "/")
-        {
-            int secondNum = stack.Pop();
-            int firstNum = stack.Pop();
-            if (secondNum == 0)
+            if (operation == "+")
             {
-                Console.WriteLine("Операция невозможна, т.к. в знаменателе ноль");
+                res = stack.Pop() + stack.Pop();
+                Console.WriteLine(res);
+            }
+            else if (operation == "-")
+            {
+                int secondNum = stack.Pop();
+                int firstNum = stack.Pop();
+                res = firstNum - secondNum;
+                Console.WriteLine(res);
+            }
+            else if (operation == "*")
+            {
+                res = stack.Pop() * stack.Pop();
+                Console.WriteLine(res);
+            }
+            else if (operation == "/")
+            {
+                int secondNum = stack.Pop();
+                int firstNum = stack.Pop();
+                if (secondNum == 0)
+                {
+                    Console.WriteLine("Р”РµР»РёС‚СЊ РЅР° РЅРѕР»СЊ РЅРµР»СЊР·СЏ");
+                }
+                else
+                {
+                    res = firstNum / secondNum;
+                    Console.WriteLine(res);
+                }
             }
             else
             {
-                res = firstNum / secondNum;
-                Console.WriteLine(res);
+                Console.WriteLine("РќРµРІРµСЂРЅРѕ РІРІРµРґРµРЅР° РѕРїРµСЂР°С†РёСЏ");
             }
         }
         else
         {
-            Console.WriteLine("Операции не существует");
+            Console.WriteLine("РќРµРІРµСЂРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ");
         }
     }
 }
 
-//2. на вход подаётся список, выдать сет списка и частоту появления каждого символа
+
+//2. РЅР° РІС…РѕРґ РїРѕРґР°С‘С‚СЃСЏ СЃРїРёСЃРѕРє, РІС‹РґР°С‚СЊ СЃРµС‚ СЃРїРёСЃРєР° Рё С‡Р°СЃС‚РѕС‚Сѓ РїРѕСЏРІР»РµРЅРёСЏ РєР°Р¶РґРѕРіРѕ СЃРёРјРІРѕР»Р°
 using System;
 class Program
 {
@@ -59,7 +67,7 @@ class Program
     {
         List<char> list = new List<char> { 'a', 'b', 'c', 'a', 'c' };
         HashSet<char> set = new HashSet<char>(list);
-        Console.WriteLine("Сет списка");
+        Console.WriteLine("РЎРµС‚ СЃРїРёСЃРєР°");
         foreach (char current in set)
         {
             Console.WriteLine(current);
@@ -77,7 +85,7 @@ class Program
                 symbols.Add(current, 1);
             }
         }
-        Console.WriteLine("\nЧастота появление каждого символа");
+        Console.WriteLine("\nР§Р°СЃС‚РѕС‚Р° РїРѕСЏРІР»РµРЅРёСЏ РєР°Р¶РґРѕРіРѕ СЃРёРјРІРѕР»Р°");
         foreach (var symbol in symbols)
         {
             Console.WriteLine($"{symbol.Key}: {symbol.Value}");
