@@ -1,4 +1,4 @@
-//Ðàáîòà ñ äåëåãàòîì
+//Работа с делегатом
 using System;
 class Methods
 {
