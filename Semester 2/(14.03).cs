@@ -1,4 +1,4 @@
-//Работа с делегатом
+//ГђГ ГЎГ®ГІГ  Г± Г¤ГҐГ«ГҐГЈГ ГІГ®Г¬
 using System;
 class Methods
 {
@@ -25,7 +25,7 @@ class Methods
     {
         if (Y == 0)
         {
-            Console.WriteLine("Делить на ноль нельзя");
+            Console.WriteLine("Р”РµР»РёС‚СЊ РЅР° РЅРѕР»СЊ РЅРµР»СЊР·СЏ");
             return 0;
         }
         else
@@ -45,7 +45,7 @@ class Program
     static int Mult_Add_Y(Methods obj) { return Del_Add_Y(obj) * obj.Y; }
     static void Main()
     {
-        Console.WriteLine("Введите числа");
+        Console.WriteLine("Р’РІРµРґРёС‚Рµ С‡РёСЃР»Р°");
         int x = int.Parse(Console.ReadLine());
         int y = int.Parse(Console.ReadLine());
 
@@ -60,13 +60,13 @@ class Program
         operation_2 += () => Del_Add_Y(object_2);
         operation_2 += () => Mult_Add_Y(object_2);
 
-        Console.WriteLine("Результаты для первого объекта");
+        Console.WriteLine("Р РµР·СѓР»СЊС‚Р°С‚С‹ РґР»СЏ РїРµСЂРІРѕРіРѕ РѕР±СЉРµРєС‚Р°");
         foreach (Operation oper in operation_1.GetInvocationList())
         {
             Console.WriteLine(oper());
         }
 
-        Console.WriteLine("\nРезультаты для второго объекта");
+        Console.WriteLine("\nР РµР·СѓР»СЊС‚Р°С‚С‹ РґР»СЏ РІС‚РѕСЂРѕРіРѕ РѕР±СЉРµРєС‚Р°");
         foreach (Operation oper in operation_2.GetInvocationList())
         {
             Console.WriteLine(oper());
