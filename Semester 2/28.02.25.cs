@@ -7,56 +7,69 @@ class Program
         int res = 0;
         string input = Console.ReadLine();
         string[] parts = input.Split(' ');
+        
+        if (parts.Length != 3 )
+        {
+            Console.WriteLine("Неверное количество элементов");
+            return;
+        }
+        
         Stack<int> stack = new Stack<int>();
+
+        foreach(var part in parts.Take(2))
+        {
+            if(!int.TryParse(part, out res))
+            {
+                Console.WriteLine("Неверный формат ввода");
+                return;
+            }
+        }
+        
         int num1 = int.Parse(parts[0]);
         int num2 = int.Parse(parts[1]);
+        
         stack.Push(num1);
         stack.Push(num2);
         string operation = parts[2];
-        if (parts.Length == 3)
+        
+        if (operation == "+")
         {
-            if (operation == "+")
+            res = stack.Pop() + stack.Pop();
+            Console.WriteLine(res);
+        }
+        else if (operation == "-")
+        {
+            int secondNum = stack.Pop();
+            int firstNum = stack.Pop();
+            res = firstNum - secondNum;
+            Console.WriteLine(res);
+        }
+        else if (operation == "*")
+        {
+            res = stack.Pop() * stack.Pop();
+            Console.WriteLine(res);
+        }
+        else if (operation == "/")
+        {
+            int secondNum = stack.Pop();
+            int firstNum = stack.Pop();
+            if (secondNum == 0)
             {
-                res = stack.Pop() + stack.Pop();
-                Console.WriteLine(res);
-            }
-            else if (operation == "-")
-            {
-                int secondNum = stack.Pop();
-                int firstNum = stack.Pop();
-                res = firstNum - secondNum;
-                Console.WriteLine(res);
-            }
-            else if (operation == "*")
-            {
-                res = stack.Pop() * stack.Pop();
-                Console.WriteLine(res);
-            }
-            else if (operation == "/")
-            {
-                int secondNum = stack.Pop();
-                int firstNum = stack.Pop();
-                if (secondNum == 0)
-                {
-                    Console.WriteLine("Делить на ноль нельзя");
-                }
-                else
-                {
-                    res = firstNum / secondNum;
-                    Console.WriteLine(res);
-                }
+                Console.WriteLine("Делить на ноль нельзя");
             }
             else
             {
-                Console.WriteLine("Неверно введена операция");
+                res = firstNum / secondNum;
+                Console.WriteLine(res);
             }
         }
         else
         {
-            Console.WriteLine("Неверное количество элементов");
+            Console.WriteLine("Неверно введена операция");
         }
     }
 }
+
 
 
 //2. на вход подаётся список, выдать сет списка и частоту появления каждого символа
