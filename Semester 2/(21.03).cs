@@ -23,12 +23,12 @@ class Washing
     {
         if (car.Clean == true)
         {
-            Console.WriteLine($"Машина {car.Mark} итак чистая!");
+            Console.WriteLine($"РњР°С€РёРЅР° {car.Mark} РёС‚Р°Рє С‡РёСЃС‚Р°СЏ!");
             return;
         }
         else
         {
-            Console.WriteLine($"Машина {car.Mark} помыта!");
+            Console.WriteLine($"РњР°С€РёРЅР° {car.Mark} РїРѕРјС‹С‚Р°!");
             return;
         }
     }
@@ -43,26 +43,26 @@ class Program
         Garage garage = new Garage();
         garage.Cars = new List<Car>();
 
-        Console.WriteLine("Введите количество машин:");
+        Console.WriteLine("Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ РјР°С€РёРЅ:");
         int count = int.Parse(Console.ReadLine());
 
-        for (int i = 0; i < count; i++)
+        for(int i = 0; i < count; i++)
         {
-            Console.WriteLine("Введите марку машины:");
+            Console.WriteLine("Р’РІРµРґРёС‚Рµ РјР°СЂРєСѓ РјР°С€РёРЅС‹:");
             string mark = Console.ReadLine();
-            Console.WriteLine("Введите год выпуска этой машины:");
+            Console.WriteLine("Р’РІРµРґРёС‚Рµ РіРѕРґ РІС‹РїСѓСЃРєР° СЌС‚РѕР№ РјР°С€РёРЅС‹:");
             int year = int.Parse(Console.ReadLine());
-            Console.WriteLine("Чистая ли эта машина? Если чистая введите '1', если грязна введите '0'");
+            Console.WriteLine("Р§РёСЃС‚Р°СЏ Р»Рё СЌС‚Р° РјР°С€РёРЅР°? Р•СЃР»Рё С‡РёСЃС‚Р°СЏ РІРІРµРґРёС‚Рµ '1', РµСЃР»Рё РіСЂСЏР·РЅР° РІРІРµРґРёС‚Рµ '0'");
             int clean = int.Parse(Console.ReadLine());
             bool clean1 = Convert.ToBoolean(clean);
-
+            
             Car car = new Car(year, mark, clean1);
             garage.Cars.Add(car);
         }
 
         Washing_Car wash = new Washing_Car(Washing.Wash);
 
-        for (int i = 0; i < count; i++)
+        for(int i = 0;i < count; i++)
         {
             wash(garage.Cars[i]);
         }
