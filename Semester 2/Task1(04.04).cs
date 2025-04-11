@@ -1,23 +1,23 @@
-/*Необходимо с помощью лямбда вычислить сумму произведения в разность и деления между двумя 
-переменными*/
+/*РќРµРѕР±С…РѕРґРёРјРѕ СЃ РїРѕРјРѕС‰СЊСЋ Р»СЏРјР±РґР° РІС‹С‡РёСЃР»РёС‚СЊ СЃСѓРјРјСѓ РїСЂРѕРёР·РІРµРґРµРЅРёСЏ РІ СЂР°Р·РЅРѕСЃС‚СЊ Рё РґРµР»РµРЅРёСЏ РјРµР¶РґСѓ РґРІСѓРјСЏ 
+РїРµСЂРµРјРµРЅРЅС‹РјРё*/
 using System;
 delegate int Lyambda(int x, int y);
 class Program
 {
     static void Main()
     {
-        Console.WriteLine("Введите значение первой переменной: ");
+        Console.WriteLine("Р’РІРµРґРёС‚Рµ Р·РЅР°С‡РµРЅРёРµ РїРµСЂРІРѕР№ РїРµСЂРµРјРµРЅРЅРѕР№: ");
         int a = int.Parse(Console.ReadLine());
-        Console.WriteLine("Введите значение второй переменной: ");
+        Console.WriteLine("Р’РІРµРґРёС‚Рµ Р·РЅР°С‡РµРЅРёРµ РІС‚РѕСЂРѕР№ РїРµСЂРµРјРµРЅРЅРѕР№: ");
         int b = int.Parse(Console.ReadLine());
         int result = 0;
         if (b == 0)
         {
-            Console.WriteLine("На 0 делить нельзя");
+            Console.WriteLine("РќР° 0 РґРµР»РёС‚СЊ РЅРµР»СЊР·СЏ");
             return;
         }
         Lyambda lyambda = (x, y) => (a + b) * (a / b) - (a * b);
         result = lyambda(a, b);
-        Console.WriteLine($"Результат: {result}");
+        Console.WriteLine($"Р РµР·СѓР»СЊС‚Р°С‚: {result}");
     }
 }
