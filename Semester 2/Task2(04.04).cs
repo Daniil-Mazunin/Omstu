@@ -1,4 +1,4 @@
-/*Дан список слов, с помощью лямбда-выражений выбрать те которые начинаются с "а"*/
+/*Р”Р°РЅ СЃРїРёСЃРѕРє СЃР»РѕРІ, СЃ РїРѕРјРѕС‰СЊСЋ Р»СЏРјР±РґР°-РІС‹СЂР°Р¶РµРЅРёР№ РІС‹Р±СЂР°С‚СЊ С‚Рµ РєРѕС‚РѕСЂС‹Рµ РЅР°С‡РёРЅР°СЋС‚СЃСЏ СЃ "Р°"*/
 using System;
 delegate List<string> Lyambda(List<string> words);
 class Program
@@ -7,14 +7,14 @@ class Program
     {
         List<string> words = new List<string>()
         {
-            "лампа",
-            "арбуз",
-            "дыня",
-            "Асус"
+            "Р»Р°РјРїР°",
+            "Р°СЂР±СѓР·",
+            "РґС‹РЅСЏ",
+            "РђСЃСѓСЃ"
         };
-        Lyambda lyambda = list => list.FindAll(word => word[0] == 'а');
+        Lyambda lyambda = list => list.FindAll(word => word[0] == 'Р°');
         List<string> result = lyambda(words);
-        Console.WriteLine($"Слова начинающиеся на 'а': ");
+        Console.WriteLine($"РЎР»РѕРІР° РЅР°С‡РёРЅР°СЋС‰РёРµСЃСЏ РЅР° 'Р°': ");
         foreach (string word in result)
         {
             Console.WriteLine(word);
