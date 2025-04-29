@@ -1,8 +1,8 @@
-/* база данных библиотеки, в которой описания книг будет с использованием структуры 
-и включать структура будет следующие поля: ФИО автора, название, год издания, наименование издательства. 
-Для каждой книги имеется формуляр, в котором отображаются движение книга (дата выдачи, дата сдачи) 
-необходимо написать программу которая позволит заполнять базу данных и делать выборку книг, 
-которые не были на руках и книг, которые не сданы в библиотеку */
+/* Р±Р°Р·Р° РґР°РЅРЅС‹С… Р±РёР±Р»РёРѕС‚РµРєРё, РІ РєРѕС‚РѕСЂРѕР№ РѕРїРёСЃР°РЅРёСЏ РєРЅРёРі Р±СѓРґРµС‚ СЃ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµРј СЃС‚СЂСѓРєС‚СѓСЂС‹ 
+Рё РІРєР»СЋС‡Р°С‚СЊ СЃС‚СЂСѓРєС‚СѓСЂР° Р±СѓРґРµС‚ СЃР»РµРґСѓСЋС‰РёРµ РїРѕР»СЏ: Р¤РРћ Р°РІС‚РѕСЂР°, РЅР°Р·РІР°РЅРёРµ, РіРѕРґ РёР·РґР°РЅРёСЏ, РЅР°РёРјРµРЅРѕРІР°РЅРёРµ РёР·РґР°С‚РµР»СЊСЃС‚РІР°. 
+Р”Р»СЏ РєР°Р¶РґРѕР№ РєРЅРёРіРё РёРјРµРµС‚СЃСЏ С„РѕСЂРјСѓР»СЏСЂ, РІ РєРѕС‚РѕСЂРѕРј РѕС‚РѕР±СЂР°Р¶Р°СЋС‚СЃСЏ РґРІРёР¶РµРЅРёРµ РєРЅРёРіР° (РґР°С‚Р° РІС‹РґР°С‡Рё, РґР°С‚Р° СЃРґР°С‡Рё) 
+РЅРµРѕР±С…РѕРґРёРјРѕ РЅР°РїРёСЃР°С‚СЊ РїСЂРѕРіСЂР°РјРјСѓ РєРѕС‚РѕСЂР°СЏ РїРѕР·РІРѕР»РёС‚ Р·Р°РїРѕР»РЅСЏС‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… Рё РґРµР»Р°С‚СЊ РІС‹Р±РѕСЂРєСѓ РєРЅРёРі, 
+РєРѕС‚РѕСЂС‹Рµ РЅРµ Р±С‹Р»Рё РЅР° СЂСѓРєР°С… Рё РєРЅРёРі, РєРѕС‚РѕСЂС‹Рµ РЅРµ СЃРґР°РЅС‹ РІ Р±РёР±Р»РёРѕС‚РµРєСѓ */
 using System;
 struct Book
 {
@@ -27,20 +27,20 @@ class Library
     }
     public void PrintBook(Book books)
     {
-        Console.WriteLine($"\nАвтор книги: {books.Author}");
-        Console.WriteLine($"Название книги: {books.NameBook}");
-        Console.WriteLine($"Год выпуска: {books.YearPublication}");
-        Console.WriteLine($"Издательство: {books.NamePublish}");
+        Console.WriteLine($"\nРђРІС‚РѕСЂ РєРЅРёРіРё: {books.Author}");
+        Console.WriteLine($"РќР°Р·РІР°РЅРёРµ РєРЅРёРіРё: {books.NameBook}");
+        Console.WriteLine($"Р“РѕРґ РІС‹РїСѓСЃРєР°: {books.YearPublication}");
+        Console.WriteLine($"РР·РґР°С‚РµР»СЊСЃС‚РІРѕ: {books.NamePublish}");
     }
     public void PrintAllBooks()
     {
         if (books.Count == 0)
         {
-            Console.WriteLine("Библиотека пуста.");
+            Console.WriteLine("Р‘РёР±Р»РёРѕС‚РµРєР° РїСѓСЃС‚Р°.");
         }
         else
         {
-            Console.WriteLine("Список всех книг: ");
+            Console.WriteLine("РЎРїРёСЃРѕРє РІСЃРµС… РєРЅРёРі: ");
             foreach (var book in books)
             {
                 PrintBook(book);
@@ -60,11 +60,11 @@ class Library
         }
         if (!exist)
         {
-            Console.WriteLine($"Книга '{nameBook}' не найдена");
+            Console.WriteLine($"РљРЅРёРіР° '{nameBook}' РЅРµ РЅР°Р№РґРµРЅР°");
             return;
         }
         forms.Add(new Form { NameBook = nameBook, Issue = issue, Return = null });
-        Console.WriteLine($"Книга '{nameBook}' выдана");
+        Console.WriteLine($"РљРЅРёРіР° '{nameBook}' РІС‹РґР°РЅР°");
     }
     public void ReturnBook(string nameBook, DateTime return_)
     {
@@ -76,21 +76,21 @@ class Library
                 var newForm = forms[i];
                 newForm.Return = return_;
                 forms[i] = newForm;
-                Console.WriteLine($"Книга '{nameBook}' вернулась в библиотеку.");
+                Console.WriteLine($"РљРЅРёРіР° '{nameBook}' РІРµСЂРЅСѓР»Р°СЃСЊ РІ Р±РёР±Р»РёРѕС‚РµРєСѓ.");
                 found = true;
                 break;
             }
         }
         if (!found)
         {
-            Console.WriteLine($"Книга '{nameBook}' не найдена.");
+            Console.WriteLine($"РљРЅРёРіР° '{nameBook}' РЅРµ РЅР°Р№РґРµРЅР°.");
         }
     }
     public void NeverIssue()
     {
-        Console.WriteLine("\nСписок книг, которые никогда не выдавались: ");
+        Console.WriteLine("\nРЎРїРёСЃРѕРє РєРЅРёРі, РєРѕС‚РѕСЂС‹Рµ РЅРёРєРѕРіРґР° РЅРµ РІС‹РґР°РІР°Р»РёСЃСЊ: ");
         bool found = false;
-        for (int i = 0; i < books.Count; i++)
+        for (int i = 0;i < books.Count;i++)
         {
             bool issued = false;
             foreach (var form in forms)
@@ -109,13 +109,13 @@ class Library
         }
         if (!found)
         {
-            Console.WriteLine("Все книги были когда-то выданы");
+            Console.WriteLine("Р’СЃРµ РєРЅРёРіРё Р±С‹Р»Рё РєРѕРіРґР°-С‚Рѕ РІС‹РґР°РЅС‹");
         }
     }
     public void BookIsNotLibrary()
     {
         bool found = false;
-        Console.WriteLine("\nСписок выданных книг: ");
+        Console.WriteLine("\nРЎРїРёСЃРѕРє РІС‹РґР°РЅРЅС‹С… РєРЅРёРі: ");
         for (int i = 0; i < books.Count; i++)
         {
             foreach (var form in forms)
@@ -132,7 +132,7 @@ class Library
         }
         if (!found)
         {
-            Console.WriteLine("Выданых книг нету");
+            Console.WriteLine("Р’С‹РґР°РЅС‹С… РєРЅРёРі РЅРµС‚Сѓ");
         }
     }
 }
@@ -142,29 +142,29 @@ class Program
     static void AddNewBook(Library books)
     {
         Book book = new Book();
-        Console.WriteLine("\nВведите автора книги: ");
+        Console.WriteLine("\nР’РІРµРґРёС‚Рµ Р°РІС‚РѕСЂР° РєРЅРёРіРё: ");
         book.Author = Console.ReadLine();
-        Console.WriteLine("Введите название книги: ");
+        Console.WriteLine("Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РєРЅРёРіРё: ");
         book.NameBook = Console.ReadLine();
-        Console.WriteLine("Введите год выпуска книги: ");
+        Console.WriteLine("Р’РІРµРґРёС‚Рµ РіРѕРґ РІС‹РїСѓСЃРєР° РєРЅРёРіРё: ");
         book.YearPublication = int.Parse(Console.ReadLine());
-        Console.WriteLine("Введите наименование издательства книги: ");
+        Console.WriteLine("Р’РІРµРґРёС‚Рµ РЅР°РёРјРµРЅРѕРІР°РЅРёРµ РёР·РґР°С‚РµР»СЊСЃС‚РІР° РєРЅРёРіРё: ");
         book.NamePublish = Console.ReadLine();
         books.AddBook(book);
     }
     static void Issue(Library books)
     {
-        Console.WriteLine("\nВведите название книги которую хотите выдать: ");
+        Console.WriteLine("\nР’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РєРЅРёРіРё РєРѕС‚РѕСЂСѓСЋ С…РѕС‚РёС‚Рµ РІС‹РґР°С‚СЊ: ");
         string nameBook = Console.ReadLine();
-        Console.WriteLine("Введите дату выдачи книги: ");
+        Console.WriteLine("Р’РІРµРґРёС‚Рµ РґР°С‚Сѓ РІС‹РґР°С‡Рё РєРЅРёРіРё: ");
         DateTime issue = DateTime.Parse(Console.ReadLine());
         books.IssueBook(nameBook, issue);
     }
     static void Return(Library books)
     {
-        Console.WriteLine("\nВведите название кники, которую хотите вернуть: ");
+        Console.WriteLine("\nР’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РєРЅРёРєРё, РєРѕС‚РѕСЂСѓСЋ С…РѕС‚РёС‚Рµ РІРµСЂРЅСѓС‚СЊ: ");
         string bookName = Console.ReadLine();
-        Console.WriteLine("Введите дату сдачи книги: ");
+        Console.WriteLine("Р’РІРµРґРёС‚Рµ РґР°С‚Сѓ СЃРґР°С‡Рё РєРЅРёРіРё: ");
         DateTime return_ = DateTime.Parse(Console.ReadLine());
         books.ReturnBook(bookName, return_);
     }
@@ -174,14 +174,14 @@ class Program
         bool a = true;
         while (a)
         {
-            Console.WriteLine("\n1. Добавить новую книгу");
-            Console.WriteLine("2. Выдать книгу читателю");
-            Console.WriteLine("3. Вернуть книгу в библиотеку");
-            Console.WriteLine("4. Показать все книги");
-            Console.WriteLine("5. Показать книги, которые никогда не выдавались");
-            Console.WriteLine("6. Показать книги, которые сейчас на руках");
-            Console.WriteLine("7. Выйти из программы");
-            Console.Write("\nВыберите действие: ");
+            Console.WriteLine("\n1. Р”РѕР±Р°РІРёС‚СЊ РЅРѕРІСѓСЋ РєРЅРёРіСѓ");
+            Console.WriteLine("2. Р’С‹РґР°С‚СЊ РєРЅРёРіСѓ С‡РёС‚Р°С‚РµР»СЋ");
+            Console.WriteLine("3. Р’РµСЂРЅСѓС‚СЊ РєРЅРёРіСѓ РІ Р±РёР±Р»РёРѕС‚РµРєСѓ");
+            Console.WriteLine("4. РџРѕРєР°Р·Р°С‚СЊ РІСЃРµ РєРЅРёРіРё");
+            Console.WriteLine("5. РџРѕРєР°Р·Р°С‚СЊ РєРЅРёРіРё, РєРѕС‚РѕСЂС‹Рµ РЅРёРєРѕРіРґР° РЅРµ РІС‹РґР°РІР°Р»РёСЃСЊ");
+            Console.WriteLine("6. РџРѕРєР°Р·Р°С‚СЊ РєРЅРёРіРё, РєРѕС‚РѕСЂС‹Рµ СЃРµР№С‡Р°СЃ РЅР° СЂСѓРєР°С…");
+            Console.WriteLine("7. Р’С‹Р№С‚Рё РёР· РїСЂРѕРіСЂР°РјРјС‹");
+            Console.Write("\nР’С‹Р±РµСЂРёС‚Рµ РґРµР№СЃС‚РІРёРµ: ");
 
             int vibor = int.Parse(Console.ReadLine());
             switch (vibor)
@@ -208,7 +208,7 @@ class Program
                     a = false;
                     break;
                 default:
-                    Console.WriteLine("\nНеверный выбор. Введите число от 1 до 7.");
+                    Console.WriteLine("\nРќРµРІРµСЂРЅС‹Р№ РІС‹Р±РѕСЂ. Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ РѕС‚ 1 РґРѕ 7.");
                     break;
             }
         }
