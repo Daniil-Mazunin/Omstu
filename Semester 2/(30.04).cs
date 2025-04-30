@@ -1,6 +1,6 @@
-/* Есть класс описывающий телефон, который включает следующие поля: номер телефона, фио, дата постановки на учет, оператор. 
- * Необходимо сформировать запросы по выборке сведения телефоне по заданному фио и заданному номеру телефона, 
- * а также вывести данные по всем телефонам сгруппированным по году и данные по телефону сгруппированными по оператору связи. */
+/* Р•СЃС‚СЊ РєР»Р°СЃСЃ РѕРїРёСЃС‹РІР°СЋС‰РёР№ С‚РµР»РµС„РѕРЅ, РєРѕС‚РѕСЂС‹Р№ РІРєР»СЋС‡Р°РµС‚ СЃР»РµРґСѓСЋС‰РёРµ РїРѕР»СЏ: РЅРѕРјРµСЂ С‚РµР»РµС„РѕРЅР°, С„РёРѕ, РґР°С‚Р° РїРѕСЃС‚Р°РЅРѕРІРєРё РЅР° СѓС‡РµС‚, РѕРїРµСЂР°С‚РѕСЂ. 
+ * РќРµРѕР±С…РѕРґРёРјРѕ СЃС„РѕСЂРјРёСЂРѕРІР°С‚СЊ Р·Р°РїСЂРѕСЃС‹ РїРѕ РІС‹Р±РѕСЂРєРµ СЃРІРµРґРµРЅРёСЏ С‚РµР»РµС„РѕРЅРµ РїРѕ Р·Р°РґР°РЅРЅРѕРјСѓ С„РёРѕ Рё Р·Р°РґР°РЅРЅРѕРјСѓ РЅРѕРјРµСЂСѓ С‚РµР»РµС„РѕРЅР°, 
+ * Р° С‚Р°РєР¶Рµ РІС‹РІРµСЃС‚Рё РґР°РЅРЅС‹Рµ РїРѕ РІСЃРµРј С‚РµР»РµС„РѕРЅР°Рј СЃРіСЂСѓРїРїРёСЂРѕРІР°РЅРЅС‹Рј РїРѕ РіРѕРґСѓ Рё РґР°РЅРЅС‹Рµ РїРѕ С‚РµР»РµС„РѕРЅСѓ СЃРіСЂСѓРїРїРёСЂРѕРІР°РЅРЅС‹РјРё РїРѕ РѕРїРµСЂР°С‚РѕСЂСѓ СЃРІСЏР·Рё. */
 using System;
 using System.Linq;
 class Phone
@@ -21,15 +21,15 @@ class Program
 {
     static void Completion(List<Phone> phones, int count)
     {
-        for (int i = 0; i < count; i++)
+        for(int i = 0; i < count; i++)
         {
-            Console.WriteLine($"\nВведите номер телефона {i + 1}-го владельца: ");
+            Console.WriteLine($"\nР’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ С‚РµР»РµС„РѕРЅР° {i + 1}-РіРѕ РІР»Р°РґРµР»СЊС†Р°: ");
             string number = Console.ReadLine();
-            Console.WriteLine($"Введите ФИО {i + 1}-го владельца: ");
+            Console.WriteLine($"Р’РІРµРґРёС‚Рµ Р¤РРћ {i + 1}-РіРѕ РІР»Р°РґРµР»СЊС†Р°: ");
             string name = Console.ReadLine();
-            Console.WriteLine($"Введите дату постановки на учет {i + 1}-го владельца (дд.мм.гггг): ");
+            Console.WriteLine($"Р’РІРµРґРёС‚Рµ РґР°С‚Сѓ РїРѕСЃС‚Р°РЅРѕРІРєРё РЅР° СѓС‡РµС‚ {i + 1}-РіРѕ РІР»Р°РґРµР»СЊС†Р° (РґРґ.РјРј.РіРіРіРі): ");
             DateTime date = Convert.ToDateTime(Console.ReadLine());
-            Console.WriteLine($"Введите оператора связи {i + 1}-го владельца: ");
+            Console.WriteLine($"Р’РІРµРґРёС‚Рµ РѕРїРµСЂР°С‚РѕСЂР° СЃРІСЏР·Рё {i + 1}-РіРѕ РІР»Р°РґРµР»СЊС†Р°: ");
             string oper = Console.ReadLine();
             Phone phone = new Phone(number, name, date, oper);
             phones.Add(phone);
@@ -39,47 +39,47 @@ class Program
     {
         bool a = true;
         List<Phone> phones = new List<Phone>();
-        while (a)
+        while(a)
         {
-            Console.WriteLine("\n1. Заполнить данные.");
-            Console.WriteLine("2. Выборка по ФИО.");
-            Console.WriteLine("3. Выборка по номеру телефона.");
-            Console.WriteLine("4. Вывести данные сгруппированные по году.");
-            Console.WriteLine("5. Вывести данные сгруппированные по оператору.");
-            Console.WriteLine("6. Выход.");
-            Console.WriteLine("Введите операцию, которую хотите сделать: ");
+            Console.WriteLine("\n1. Р—Р°РїРѕР»РЅРёС‚СЊ РґР°РЅРЅС‹Рµ.");
+            Console.WriteLine("2. Р’С‹Р±РѕСЂРєР° РїРѕ Р¤РРћ.");
+            Console.WriteLine("3. Р’С‹Р±РѕСЂРєР° РїРѕ РЅРѕРјРµСЂСѓ С‚РµР»РµС„РѕРЅР°.");
+            Console.WriteLine("4. Р’С‹РІРµСЃС‚Рё РґР°РЅРЅС‹Рµ СЃРіСЂСѓРїРїРёСЂРѕРІР°РЅРЅС‹Рµ РїРѕ РіРѕРґСѓ.");
+            Console.WriteLine("5. Р’С‹РІРµСЃС‚Рё РґР°РЅРЅС‹Рµ СЃРіСЂСѓРїРїРёСЂРѕРІР°РЅРЅС‹Рµ РїРѕ РѕРїРµСЂР°С‚РѕСЂСѓ.");
+            Console.WriteLine("6. Р’С‹С…РѕРґ.");
+            Console.WriteLine("Р’РІРµРґРёС‚Рµ РѕРїРµСЂР°С†РёСЋ, РєРѕС‚РѕСЂСѓСЋ С…РѕС‚РёС‚Рµ СЃРґРµР»Р°С‚СЊ: ");
             int choice = int.Parse(Console.ReadLine());
-            switch (choice)
+            switch (choice) 
             {
                 case 1:
-                    Console.WriteLine("\nВведите количество владельцев.");
+                    Console.WriteLine("\nР’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ РІР»Р°РґРµР»СЊС†РµРІ.");
                     int count = int.Parse(Console.ReadLine());
                     Completion(phones, count);
                     break;
                 case 2:
-                    Console.WriteLine("\nВведите ФИО для выборки: ");
+                    Console.WriteLine("\nР’РІРµРґРёС‚Рµ Р¤РРћ РґР»СЏ РІС‹Р±РѕСЂРєРё: ");
                     string name = Console.ReadLine();
                     var selectionName = from phone in phones
                                         where phone.Name == name
                                         select phone;
                     foreach (var phone in selectionName)
                     {
-                        Console.WriteLine($"\nНомер: {phone.Number}, ФИО: {phone.Name}, Дата: {phone.Date}, Оператор: {phone.Oper}");
+                        Console.WriteLine($"\nРќРѕРјРµСЂ: {phone.Number}, Р¤РРћ: {phone.Name}, Р”Р°С‚Р°: {phone.Date}, РћРїРµСЂР°С‚РѕСЂ: {phone.Oper}");
                     }
                     break;
                 case 3:
-                    Console.WriteLine("\nВведите номер телефона для выборки: ");
+                    Console.WriteLine("\nР’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ С‚РµР»РµС„РѕРЅР° РґР»СЏ РІС‹Р±РѕСЂРєРё: ");
                     string number = Console.ReadLine();
                     var selectionNumber = from phone in phones
                                           where phone.Number == number
                                           select phone;
                     foreach (var phone in selectionNumber)
                     {
-                        Console.WriteLine($"Номер: {phone.Number}, ФИО: {phone.Name}, Дата: {phone.Date}, Оператор: {phone.Oper}");
+                        Console.WriteLine($"РќРѕРјРµСЂ: {phone.Number}, Р¤РРћ: {phone.Name}, Р”Р°С‚Р°: {phone.Date}, РћРїРµСЂР°С‚РѕСЂ: {phone.Oper}");
                     }
                     break;
                 case 4:
-                    Console.WriteLine("\nГруппировка по году: ");
+                    Console.WriteLine("\nР“СЂСѓРїРїРёСЂРѕРІРєР° РїРѕ РіРѕРґСѓ: ");
                     var groupDate = from phone in phones
                                     group phone by phone.Date.Year into g
                                     orderby g.Key
@@ -87,25 +87,25 @@ class Program
 
                     foreach (var group in groupDate)
                     {
-                        Console.WriteLine($"\nГод: {group.Key}");
+                        Console.WriteLine($"\nР“РѕРґ: {group.Key}");
                         foreach (var phone in group)
                         {
-                            Console.WriteLine($"Номер: {phone.Number}, ФИО: {phone.Name}, Дата: {phone.Date}, Оператор: {phone.Oper}");
+                            Console.WriteLine($"РќРѕРјРµСЂ: {phone.Number}, Р¤РРћ: {phone.Name}, Р”Р°С‚Р°: {phone.Date}, РћРїРµСЂР°С‚РѕСЂ: {phone.Oper}");
                         }
                     }
                     break;
                 case 5:
-                    Console.WriteLine("\nГруппировка по оператору: ");
+                    Console.WriteLine("\nР“СЂСѓРїРїРёСЂРѕРІРєР° РїРѕ РѕРїРµСЂР°С‚РѕСЂСѓ: ");
                     var groupOper = from phone in phones
                                     group phone by phone.Oper into g
                                     orderby g.Key
                                     select g;
                     foreach (var group in groupOper)
                     {
-                        Console.WriteLine($"\nОператор: {group.Key}");
+                        Console.WriteLine($"\nРћРїРµСЂР°С‚РѕСЂ: {group.Key}");
                         foreach (var phone in group)
                         {
-                            Console.WriteLine($"Номер: {phone.Number}, ФИО: {phone.Name}, Дата: {phone.Date}");
+                            Console.WriteLine($"РќРѕРјРµСЂ: {phone.Number}, Р¤РРћ: {phone.Name}, Р”Р°С‚Р°: {phone.Date}");
                         }
                     }
                     break;
@@ -113,7 +113,7 @@ class Program
                     a = false;
                     break;
                 default:
-                    Console.WriteLine("\nТакой операции не существует.");
+                    Console.WriteLine("\nРўР°РєРѕР№ РѕРїРµСЂР°С†РёРё РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚.");
                     break;
             }
         }
