@@ -1,13 +1,13 @@
-/*У нас имеется база данных магазин. В которой есть сведения о поставщиках, о товарах и движение товара в магазине. 
-Если с точки зрения поставщика то объект, описывается следующим полями
-Наименование, контактный телефон, город, идентификатор 
-О товаре известно артикул, наименование. 
-Движение товара у нас артикул товара, номер поставщика, дата, поступление или продажа.
-Дальше у вас будет количество и дальше у вас будет стоимость (стоимость одной единицы). С помощью языка запросов необходимо определить 
-1.  количество остатков товара в магазине 
-2. сгруппировать поставки товара по дате
-3. сгруппировать поставки товара по поставщику
-4. выдать движение товара сгруппированного по артикулу*/
+/*РЈ РЅР°СЃ РёРјРµРµС‚СЃСЏ Р±Р°Р·Р° РґР°РЅРЅС‹С… РјР°РіР°Р·РёРЅ. Р’ РєРѕС‚РѕСЂРѕР№ РµСЃС‚СЊ СЃРІРµРґРµРЅРёСЏ Рѕ РїРѕСЃС‚Р°РІС‰РёРєР°С…, Рѕ С‚РѕРІР°СЂР°С… Рё РґРІРёР¶РµРЅРёРµ С‚РѕРІР°СЂР° РІ РјР°РіР°Р·РёРЅРµ. 
+Р•СЃР»Рё СЃ С‚РѕС‡РєРё Р·СЂРµРЅРёСЏ РїРѕСЃС‚Р°РІС‰РёРєР° С‚Рѕ РѕР±СЉРµРєС‚, РѕРїРёСЃС‹РІР°РµС‚СЃСЏ СЃР»РµРґСѓСЋС‰РёРј РїРѕР»СЏРјРё
+РќР°РёРјРµРЅРѕРІР°РЅРёРµ, РєРѕРЅС‚Р°РєС‚РЅС‹Р№ С‚РµР»РµС„РѕРЅ, РіРѕСЂРѕРґ, РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ 
+Рћ С‚РѕРІР°СЂРµ РёР·РІРµСЃС‚РЅРѕ Р°СЂС‚РёРєСѓР», РЅР°РёРјРµРЅРѕРІР°РЅРёРµ. 
+Р”РІРёР¶РµРЅРёРµ С‚РѕРІР°СЂР° Сѓ РЅР°СЃ Р°СЂС‚РёРєСѓР» С‚РѕРІР°СЂР°, РЅРѕРјРµСЂ РїРѕСЃС‚Р°РІС‰РёРєР°, РґР°С‚Р°, РїРѕСЃС‚СѓРїР»РµРЅРёРµ РёР»Рё РїСЂРѕРґР°Р¶Р°.
+Р”Р°Р»СЊС€Рµ Сѓ РІР°СЃ Р±СѓРґРµС‚ РєРѕР»РёС‡РµСЃС‚РІРѕ Рё РґР°Р»СЊС€Рµ Сѓ РІР°СЃ Р±СѓРґРµС‚ СЃС‚РѕРёРјРѕСЃС‚СЊ (СЃС‚РѕРёРјРѕСЃС‚СЊ РѕРґРЅРѕР№ РµРґРёРЅРёС†С‹). РЎ РїРѕРјРѕС‰СЊСЋ СЏР·С‹РєР° Р·Р°РїСЂРѕСЃРѕРІ РЅРµРѕР±С…РѕРґРёРјРѕ РѕРїСЂРµРґРµР»РёС‚СЊ 
+1.  РєРѕР»РёС‡РµСЃС‚РІРѕ РѕСЃС‚Р°С‚РєРѕРІ С‚РѕРІР°СЂР° РІ РјР°РіР°Р·РёРЅРµ 
+2. СЃРіСЂСѓРїРїРёСЂРѕРІР°С‚СЊ РїРѕСЃС‚Р°РІРєРё С‚РѕРІР°СЂР° РїРѕ РґР°С‚Рµ
+3. СЃРіСЂСѓРїРїРёСЂРѕРІР°С‚СЊ РїРѕСЃС‚Р°РІРєРё С‚РѕРІР°СЂР° РїРѕ РїРѕСЃС‚Р°РІС‰РёРєСѓ
+4. РІС‹РґР°С‚СЊ РґРІРёР¶РµРЅРёРµ С‚РѕРІР°СЂР° СЃРіСЂСѓРїРїРёСЂРѕРІР°РЅРЅРѕРіРѕ РїРѕ Р°СЂС‚РёРєСѓР»Сѓ*/
 using System;
 using System.Linq;
 class Provider(int id, string name, string number, string city)
@@ -58,14 +58,14 @@ class Program
         movements.Add(movement4);
 
         bool a = true;
-        while (a)
+        while(a)
         {
-            Console.WriteLine("\tМеню");
-            Console.WriteLine("1. Количество остатков товара в магазине");
-            Console.WriteLine("2. Сгруппировать поставки товара по дате");
-            Console.WriteLine("3. Сгруппировать поставки товара по поставщику");
-            Console.WriteLine("4. Выдать движение товара сгруппированного по артикулу");
-            Console.WriteLine("5. Выход");
+            Console.WriteLine("\tРњРµРЅСЋ");
+            Console.WriteLine("1. РљРѕР»РёС‡РµСЃС‚РІРѕ РѕСЃС‚Р°С‚РєРѕРІ С‚РѕРІР°СЂР° РІ РјР°РіР°Р·РёРЅРµ");
+            Console.WriteLine("2. РЎРіСЂСѓРїРїРёСЂРѕРІР°С‚СЊ РїРѕСЃС‚Р°РІРєРё С‚РѕРІР°СЂР° РїРѕ РґР°С‚Рµ");
+            Console.WriteLine("3. РЎРіСЂСѓРїРїРёСЂРѕРІР°С‚СЊ РїРѕСЃС‚Р°РІРєРё С‚РѕРІР°СЂР° РїРѕ РїРѕСЃС‚Р°РІС‰РёРєСѓ");
+            Console.WriteLine("4. Р’С‹РґР°С‚СЊ РґРІРёР¶РµРЅРёРµ С‚РѕРІР°СЂР° СЃРіСЂСѓРїРїРёСЂРѕРІР°РЅРЅРѕРіРѕ РїРѕ Р°СЂС‚РёРєСѓР»Сѓ");
+            Console.WriteLine("5. Р’С‹С…РѕРґ");
             int choice = int.Parse(Console.ReadLine());
             switch (choice)
             {
@@ -79,27 +79,27 @@ class Program
                                               ProductName = p.Name,
                                               Balance = g.Sum(x => x.IsComing ? x.Kolvo : -x.Kolvo)
                                           };
-                    Console.WriteLine("\nОстатки товаров:");
+                    Console.WriteLine("\nРћСЃС‚Р°С‚РєРё С‚РѕРІР°СЂРѕРІ:");
                     foreach (var item in productBalances)
                     {
-                        Console.WriteLine($"{item.ProductName}: {item.Balance} штук");
+                        Console.WriteLine($"{item.ProductName}: {item.Balance} С€С‚СѓРє");
                     }
                     break;
                 case 2:
                     var productByData = from m in movements
-                                        where m.IsComing
-                                        group m by m.Data into g
-                                        orderby g.Key
-                                        select g;
+                                          where m.IsComing
+                                          group m by m.Data into g
+                                          orderby g.Key
+                                          select g;
 
-                    Console.WriteLine("\nПоставки товаров по датам:");
+                    Console.WriteLine("\nРџРѕСЃС‚Р°РІРєРё С‚РѕРІР°СЂРѕРІ РїРѕ РґР°С‚Р°Рј:");
                     foreach (var group in productByData)
                     {
-                        Console.WriteLine($"Дата: {group.Key}");
+                        Console.WriteLine($"Р”Р°С‚Р°: {group.Key}");
                         foreach (var movement in group)
                         {
                             var product = products.First(p => p.Id == movement.ProductId);
-                            Console.WriteLine($"Товар: {product.Name}, Количество: {movement.Kolvo}, Цена: {movement.Price}");
+                            Console.WriteLine($"РўРѕРІР°СЂ: {product.Name}, РљРѕР»РёС‡РµСЃС‚РІРѕ: {movement.Kolvo}, Р¦РµРЅР°: {movement.Price}");
                         }
                     }
                     break;
@@ -113,14 +113,14 @@ class Program
                                                   ProviderName = p.Name,
                                                   Movements = g
                                               };
-                    Console.WriteLine("\nПоставки товаров по поставщикам:");
+                    Console.WriteLine("\nРџРѕСЃС‚Р°РІРєРё С‚РѕРІР°СЂРѕРІ РїРѕ РїРѕСЃС‚Р°РІС‰РёРєР°Рј:");
                     foreach (var group in movementsByProvider)
                     {
-                        Console.WriteLine($"Поставщик: {group.ProviderName}");
+                        Console.WriteLine($"РџРѕСЃС‚Р°РІС‰РёРє: {group.ProviderName}");
                         foreach (var movement in group.Movements)
                         {
                             var product = products.First(p => p.Id == movement.ProductId);
-                            Console.WriteLine($"Товар: {product.Name}, Дата: {movement.Data}, Количество: {movement.Kolvo}, Цена: {movement.Price}");
+                            Console.WriteLine($"РўРѕРІР°СЂ: {product.Name}, Р”Р°С‚Р°: {movement.Data}, РљРѕР»РёС‡РµСЃС‚РІРѕ: {movement.Kolvo}, Р¦РµРЅР°: {movement.Price}");
                         }
                     }
                     break;
@@ -134,15 +134,15 @@ class Program
                                                  ProductName = p.Name,
                                                  Movements = g
                                              };
-                    Console.WriteLine("\nДвижение товаров:");
+                    Console.WriteLine("\nР”РІРёР¶РµРЅРёРµ С‚РѕРІР°СЂРѕРІ:");
                     foreach (var group in movementsByProduct)
                     {
-                        Console.WriteLine($"Товар: {group.ProductName}");
+                        Console.WriteLine($"РўРѕРІР°СЂ: {group.ProductName}");
                         foreach (var movement in group.Movements)
                         {
                             var provider = providers.First(p => p.Id == movement.ProviderId);
-                            string operation = movement.IsComing ? "Поступление" : "Продажа";
-                            Console.WriteLine($"{operation}, Поставщик: {provider.Name}, Дата: {movement.Data}, Количество: {movement.Kolvo}, Цена: {movement.Price}");
+                            string operation = movement.IsComing ? "РџРѕСЃС‚СѓРїР»РµРЅРёРµ" : "РџСЂРѕРґР°Р¶Р°";
+                            Console.WriteLine($"{operation}, РџРѕСЃС‚Р°РІС‰РёРє: {provider.Name}, Р”Р°С‚Р°: {movement.Data}, РљРѕР»РёС‡РµСЃС‚РІРѕ: {movement.Kolvo}, Р¦РµРЅР°: {movement.Price}");
                         }
                     }
                     break;
@@ -150,7 +150,7 @@ class Program
                     a = false;
                     break;
                 default:
-                    Console.WriteLine("Неверный ввод. Введите число от 1 до 5.");
+                    Console.WriteLine("РќРµРІРµСЂРЅС‹Р№ РІРІРѕРґ. Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ РѕС‚ 1 РґРѕ 5.");
                     break;
             }
         }
